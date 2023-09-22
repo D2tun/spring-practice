@@ -8,9 +8,9 @@ public class Test {
 
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext con = new ClassPathXmlApplicationContext("applicationContext.xml");
-		Music music = con.getBean("musicBean", Music.class);
+//		Music music = con.getBean("musicBean", Music.class);
 		
-		MusicPlayer mp = new MusicPlayer(music);
+		MusicPlayer mp = con.getBean("musicPlayer", MusicPlayer.class);
 		
 		mp.playMusic();
 		
