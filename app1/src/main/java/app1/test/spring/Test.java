@@ -13,7 +13,8 @@ public class Test {
 		MusicPlayer mp = con.getBean("musicPlayer", MusicPlayer.class);
 		
 		mp.playMusic();
-		
+		System.out.println(mp.getName());
+		System.out.println(mp.getVolume());
 		con.close();
 	}
 
