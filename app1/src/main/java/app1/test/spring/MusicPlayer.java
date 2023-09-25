@@ -1,25 +1,30 @@
 package app1.test.spring;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import app1.test.spring.Interface.Music;
 
 public class MusicPlayer {
 
-	private Music music;
+	private List<Music> musicList = new ArrayList<>();
 	private int volume;
 	private String name;
 	
-	public MusicPlayer(Music music) {
-		this.music = music;
+	public MusicPlayer(ArrayList musicList) {
+		this.musicList = musicList;
 	}
 
 	public MusicPlayer() {};
 	
 	public void playMusic() {
-		System.out.println("Playing: " + this.music.getSong());
+		for (int i = 0; i < this.musicList.size(); ++i) {
+			System.out.println("Playing: " + this.musicList.get(i).getSong());
+		}
 	}
-
-	public void setMusic(Music music) {
-		this.music = music;
+	
+	public void setMusicList(ArrayList<Music> musicList) {
+		this.musicList = musicList;
 	}
 
 	public void setVolume(int volume) {
@@ -30,8 +35,8 @@ public class MusicPlayer {
 		this.name = name;
 	}
 
-	public Music getMusic() {
-		return music;
+	public ArrayList<Music> getMusicList() {
+		return (ArrayList<Music>) this.musicList;
 	}
 
 	public int getVolume() {
