@@ -11,6 +11,11 @@ public class Test {
 //		Music music = con.getBean("musicBean", Music.class);
 		
 		MusicPlayer mp = con.getBean("musicPlayer", MusicPlayer.class);
+/*		MusicPlayer mp2 = con.getBean("musicPlayer", MusicPlayer.class);
+		System.out.println(mp == mp2);
+		mp2.setVolume(10);
+		System.out.println(mp);
+		System.out.println(mp2);*/
 		
 		System.out.println(mp.getName());
 		System.out.println(mp.getVolume());
