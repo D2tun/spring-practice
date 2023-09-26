@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import app1v2.test.spring.Interface.Music;
 
-@Component()
+@Component
 public class ClassicMusic implements Music {
 
 	private ClassicMusic() {

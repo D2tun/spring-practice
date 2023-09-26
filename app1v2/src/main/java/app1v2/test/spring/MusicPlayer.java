@@ -3,28 +3,34 @@ package app1v2.test.spring;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import app1v2.test.spring.Interface.Music;
 
+@Component
 public class MusicPlayer {
 
-	private List<Music> musicList = new ArrayList<>();
+	private ClassicMusic music;
+	private FolkMusic music2;
 	private int volume;
 	private String name;
-	
-	public MusicPlayer(ArrayList musicList) {
-		this.musicList = musicList;
+	@Autowired
+	public MusicPlayer(ClassicMusic music, FolkMusic musik2) {
+		this.music = music;
+		this.music2=musik2;
 	}
 
 	public MusicPlayer() {};
 	
-	public void playMusic() {
-		for (int i = 0; i < this.musicList.size(); ++i) {
-			System.out.println("Playing: " + this.musicList.get(i).getSong());
-		}
+	public String playMusic() {
+		return "Playing: " + this.music.getSong();
+		//System.out.println("Playing: " + this.music2.getSong());
 	}
 	
-	public void setMusicList(ArrayList<Music> musicList) {
-		this.musicList = musicList;
+
+	public void setMusic(Music music) {
+		this.music = (ClassicMusic) music;
 	}
 
 	public void setVolume(int volume) {
@@ -35,8 +41,8 @@ public class MusicPlayer {
 		this.name = name;
 	}
 
-	public ArrayList<Music> getMusicList() {
-		return (ArrayList<Music>) this.musicList;
+	public Music getMusic() {
+		return music;
 	}
 
 	public int getVolume() {
