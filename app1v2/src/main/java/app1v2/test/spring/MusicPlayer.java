@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import app1v2.test.spring.Interface.Music;
@@ -11,26 +12,24 @@ import app1v2.test.spring.Interface.Music;
 @Component
 public class MusicPlayer {
 
-	private ClassicMusic music;
-	private FolkMusic music2;
+	private Music music1;
+	private Music music2;
 	private int volume;
 	private String name;
 	@Autowired
-	public MusicPlayer(ClassicMusic music, FolkMusic musik2) {
-		this.music = music;
-		this.music2=musik2;
+	public MusicPlayer(@Qualifier("folkMusic") Music music, @Qualifier("rockMusic") Music music2) {
+		this.music1 = music;
+		this.music2 = music2;
 	}
 
 	public MusicPlayer() {};
 	
 	public String playMusic() {
-		return "Playing: " + this.music.getSong();
-		//System.out.println("Playing: " + this.music2.getSong());
+		return "Playing: " + this.music1.getSong() + ", " + this.music2.getSong();
 	}
 	
-
 	public void setMusic(Music music) {
-		this.music = (ClassicMusic) music;
+		this.music1 = music;
 	}
 
 	public void setVolume(int volume) {
@@ -42,7 +41,7 @@ public class MusicPlayer {
 	}
 
 	public Music getMusic() {
-		return music;
+		return music1;
 	}
 
 	public int getVolume() {
