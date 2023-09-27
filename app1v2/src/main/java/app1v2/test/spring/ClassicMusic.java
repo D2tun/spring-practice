@@ -15,8 +15,8 @@ public class ClassicMusic implements Music {
 	}
 	
 	@Override
-	public String getSong() {
-		return "Hungarian rapsody";
+	public String[] getSong() {
+		return new String[] {"Hungarian rapsody", "Habanera", "Вальс цветов"};
 	}
 	
 	public void doInit() {

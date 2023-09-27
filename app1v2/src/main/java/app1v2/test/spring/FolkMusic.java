@@ -8,8 +8,8 @@ import app1v2.test.spring.Interface.Music;
 public class FolkMusic implements Music {
 
 	@Override
-	public String getSong() {
-		return "Tamo daleko";
+	public String[] getSong() {
+		return new String[] {"Tamo daleko", "Czerwone jagody", "Was wollen wir trinken"};
 	}
 
 }

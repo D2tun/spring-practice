@@ -13,16 +13,14 @@ public class Test {
 		
 		/*Music music = con.getBean("classicMusic", Music.class);
 		Music music2 = con.getBean("folkMusic", FolkMusic.class);
-		Music music3 = con.getBean("rockMusic", RockMusic.class);
+		Music music3 = con.getBean("rockMusic", RockMusic.class);*/
 
 
 		MusicPlayer mp = con.getBean("musicPlayer", MusicPlayer.class);
 		
-		mp.playMusic();*/
+		//Computer comp = con.getBean("computer", Computer.class);
 		
-		Computer comp = con.getBean("computer", Computer.class);
-		
-		System.out.println(comp);
+		System.out.println(mp.playMusic(MusicGenres.FOLK_MUSIC));
 		
 		con.close();
 	}

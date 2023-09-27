@@ -8,8 +8,8 @@ import app1v2.test.spring.Interface.Music;
 public class RockMusic implements Music {
 
 	@Override
-	public String getSong() {
-		return "Trial";
+	public String[] getSong() {
+		return new String[] {"Trial", "Still loving you", "Sonne"};
 	}
 
 }
