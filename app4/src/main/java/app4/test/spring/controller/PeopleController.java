@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -62,6 +63,12 @@ public class PeopleController {
 	@PatchMapping("/{id}")
 	public String update(@ModelAttribute("person") Person person, @PathVariable("id") int id) {
 		this.personDAO.update(id, person);
+		return "redirect:/people";
+	}
+	
+	@DeleteMapping("/{id}")
+	public String delete(@PathVariable("id") int id) {
+		this.personDAO.delete(id);
 		return "redirect:/people";
 	}
 }
