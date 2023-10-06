@@ -11,16 +11,7 @@ import app4.test.spring.models.Person;
 public class PersonDAO {
 	
 	private static int peopleCount = 0;
-	private List<Person> people;
-
-	{
-		this.people = new ArrayList<>();
-		
-		this.people.add(new Person(peopleCount++, "Sam"));
-		this.people.add(new Person(peopleCount++, "Jack"));
-		this.people.add(new Person(peopleCount++, "Oswald"));
-		this.people.add(new Person(peopleCount++, "Katy"));
-	}
+	private List<Person> people = new ArrayList<>();
 	
 	
 	public List<Person> index() {
@@ -39,6 +30,8 @@ public class PersonDAO {
 	public void update(int id, Person person) {
 		Person personToUpdate = this.show(id);
 		personToUpdate.setName(person.getName());
+		personToUpdate.setAge(person.getAge());
+		personToUpdate.setEmail(person.getEmail());
 	}
 	
 	public void delete(int id) {
