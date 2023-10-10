@@ -142,8 +142,8 @@
 
 	      <Context docBase="app3" path="/app3" reloadable="true" source="org.eclipse.jst.jee.server:app3"/>
 	      <Context docBase="app2" path="/app2" reloadable="true" source="org.eclipse.jst.j2ee.server:app2"/>
-	      <Context docBase="app4" path="/app4" reloadable="true" source="org.eclipse.jst.j2ee.server:app4"/>
-      </Host>
+	      
+      <Context docBase="app4" path="/app4" reloadable="true" source="org.eclipse.jst.jee.server:app4"/></Host>
     </Engine>
   </Service>
 </Server>

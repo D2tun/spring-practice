@@ -21,6 +21,7 @@ public class Person {
 		this.id = id;
 		this.age = age;
 		this.email = email;
+		this.name = name;
 	}
 	
 	public Person() {
@@ -36,7 +37,7 @@ public class Person {
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -44,7 +45,7 @@ public class Person {
 	}
 
 	public int getAge() {
-		return age;
+		return this.age;
 	}
 
 	public void setAge(int age) {
@@ -52,7 +53,7 @@ public class Person {
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public void setEmail(String email) {
