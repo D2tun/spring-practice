@@ -1,9 +1,15 @@
 package app4.test.spring.config;
 
+import java.sql.DriverManager;
+
+import javax.sql.DataSource;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -49,4 +55,18 @@ public class MvcConfiguration implements WebMvcConfigurer{
 		return srtr;
 	}
 	
+	@Bean
+	public DataSource dataSource() {
+		DriverManagerDataSource dmds = new DriverManagerDataSource();
+		dmds.setDriverClassName("org.postgresql.Driver");
+		dmds.setUrl("jdbc:postgresql://localhost:10000/peopleDB");
+		dmds.setUsername("postgres");
+		dmds.setPassword("285");
+		return dmds;
+	}
+	
+	@Bean
+	public JdbcTemplate jdbcTemplate() {
+		return new JdbcTemplate(dataSource());
+	}
 }
