@@ -16,7 +16,6 @@ import com.springDataJPA.springWebApp.bean.Topic;
 import com.springDataJPA.springWebApp.service.TopicService;
 
 @RestController
-@RequestMapping("/topic")
 public class TopicController {
 	
 	@Autowired
